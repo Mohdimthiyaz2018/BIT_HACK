@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="keywords" content="HTML, CSS, JavaScript" />
     <meta name="author" content="Shrithik" />
-    <link rel="stylesheet" href="viewProblam.css" />
+    <link rel="stylesheet" href="viewProblem.css" />
     <title>SkillsBIT</title>
   </head>
   <body>
@@ -20,7 +20,7 @@
       <div class="navBar">
         <a href="../Home/homeA.php">HOME</a>
         <a href="#">ABOUT</a>
-        <a href="../Domain/domain.php">PROBLAM-STATEMENTS</a>
+        <a href="../Domain/domain.php">PROBLEM-STATEMENTS</a>
         <a href="../Profile/profile.php">PROFILE</a>
         <a href="../Home/homeB.php" class="login">LOG OUT</a>
       </div>
@@ -30,7 +30,7 @@
         <div class="box">
             <div class="title">TITLE</div>
             <div class="session">
-                <div class = "f20"><strong>Problem Code:</strong> &nbsp&nbsp&nbsp 1 </div>
+                <div class = "f20"><strong>PProblem Code:</strong> &nbsp&nbsp&nbsp 1 </div>
                 <div class = "f20"><strong>Mentor Name:</strong> &nbsp&nbsp&nbsp Shrithik</div>
                 <div class = "f20"><strong>Mentor E-Mail:</strong> &nbsp&nbsp&nbsp s@mail.com</div>
             </div>

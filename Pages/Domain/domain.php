@@ -16,7 +16,7 @@
         <div class="navBar">
                 <a href="../Home/homeA.php" >HOME</a>
                 <a href="#" >ABOUT</a>
-                <a href="../Domain/domain.php" class="active">PROBLAM-STATEMENTS</a>
+                <a href="../Domain/domain.php" class="active">PROBLEM-STATEMENTS</a>
                 <a href="../Profile/profile.php" >PROFILE</a>
                 <a href="../Home/homeB.php" class="login">LOG OUT</a>
         </div>
@@ -25,47 +25,47 @@
     <div class="body">
       <div class="title">CHOOSE DOMAIN</div>
       <div class="cards" id="cards">
-        <a href="../ProblamStatement/problamStatement.php">
+        <a href="../ProblemStatement/problemStatement.php">
           <div class="card">
             <div class="cardHead">FULL STACK</div>
           </div>
         </a>
-        <a href="../ProblamStatement/problamStatement.php">
+        <a href="../ProblemStatement/problemStatement.php">
           <div class="card">
             <div class="cardHead">CLOUD</div>
           </div>
         </a>
-        <a href="../ProblamStatement/problamStatement.php">
+        <a href="../ProblemStatement/problemStatement.php">
           <div class="card">
             <div class="cardHead">WEB DEVELOPMENT</div>
           </div>
         </a>
-        <a href="../ProblamStatement/problamStatement.php">
+        <a href="../ProblemStatement/problemStatement.php">
           <div class="card">
             <div class="cardHead">BLOCKCHAIN</div>
           </div>
         </a>
-        <a href="../ProblamStatement/problamStatement.php">
+        <a href="../ProblemStatement/problemStatement.php">
           <div class="card">
             <div class="cardHead">NLP</div>
           </div>
         </a>
-        <a href="../ProblamStatement/problamStatement.php">
+        <a href="../ProblemStatement/problemStatement.php">
           <div class="card">
             <div class="cardHead">QT</div>
           </div>
         </a>
-        <a href="../ProblamStatement/problamStatement.php">
+        <a href="../ProblemStatement/problemStatement.php">
           <div class="card">
             <div class="cardHead">ML/DL</div>
           </div>
         </a>
-        <a href="../ProblamStatement/problamStatement.php">
+        <a href="../ProblemStatement/problemStatement.php">
           <div class="card">
             <div class="cardHead">AR/VR</div>
           </div>
         </a>
-        <a href="../ProblamStatement/problamStatement.php">
+        <a href="../ProblemStatement/problemStatement.php">
           <div class="card">
             <div class="cardHead">CYBER SECURITY</div>
           </div>

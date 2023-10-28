@@ -16,7 +16,7 @@
         <div class="navBar">
                 <a href="../Home/homeA.php" class="active">HOME</a>
                 <a href="#" >ABOUT</a>
-                <a href="../Domain/domain.php" >PROBLAM-STATEMENTS</a>
+                <a href="../Domain/domain.php" >PROBLEM-STATEMENTS</a>
                 <a href="../Profile/profile.php" >PROFILE</a>
                 <a href="../Home/homeB.php" class="login">LOG OUT</a>
         </div>

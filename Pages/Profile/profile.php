@@ -20,7 +20,7 @@
       <div class="navBar">
         <a href="../Home/homeA.php" class="active">HOME</a>
         <a href="#">ABOUT</a>
-        <a href="../Domain/domain.php">PROBLAM-STATEMENTS</a>
+        <a href="../Domain/domain.php">PROBLEM-STATEMENTS</a>
         <a href="../Profile/profile.php">PROFILE</a>
         <a href="../Home/homeB.php" class="login">LOG OUT</a>
       </div>
@@ -45,7 +45,7 @@
                     <div class="subHead">PhoneNO</div>
                     <div class="subHead">:</div>
                     <div class="subBody">8610646600</div>
-                    <div class="subHead">Problam Statement</div>
+                    <div class="subHead">Problem Statement</div>
                     <div class="subHead">:</div>
                     <div class="subBody">Not Selected Yet!</div>
                 </div>
