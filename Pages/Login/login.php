@@ -25,6 +25,11 @@
             <div class="gTxt">Login with Google</div>
           </div>
       </a>
+      <div>
+        <center>
+          <button class="back" onclick="history.back()">GO BACK</button>
+        </center>
+      </div>
     </div>
   </body>
 </html>

@@ -15,7 +15,7 @@
         </div>
         <div class="navBar">
                 <a href="../Home/homeB.php" class="active">HOME</a>
-                <a href="../homeA/homeA.php" >ABOUT</a>
+                <a href="#" >ABOUT</a>
                 <a href="../Login/login.php" class="login">LOGIN / REGISTER</a>
         </div>
     </div>
