@@ -33,14 +33,14 @@
         <div class="grid-container-body tabelHead">
         <div class="grid-item-head">PROBLEM_CODE</div>
           <div class="grid-item-head">TOPIC</div>
-          <div class="grid-item-head">DESCRIPTION</div>
+          <!-- <div class="grid-item-head">DESCRIPTION</div> -->
           <div class="grid-item-head"></div>
         </div>
         <div >
           <form class="grid-container-body tabelBody" method="POST" action="../ViewProblem/viewProblem.php">
-            <div class="grid-item sNo">1</div>
-              <div class="grid-item topic" >topic1</div>
-              <div class="grid-item description" >description description description description description description description description description description </div>
+            <div class="grid-item sNo">1001</div>
+              <div class="grid-item topic" >topic1topic1topic1topic1topic1</div>
+              <!-- <div class="grid-item description" >description description description description description description description description description description </div> -->
               <div class="grid-item">
                 <center>
                   <input  class="button" type="submit" value="VIEW"></input>

@@ -21,7 +21,15 @@
     </div>
     <!-- HEAD END -->
     <div class="body">
-        <div class="title">SKILLS BIT</div>
+      <span id="S">S</span>
+      <span id="K">K</span>
+      <span id="I">I</span>
+      <span id="L">L</span>
+      <span id="L">L</span>
+      &nbsp;&nbsp;
+      <span id="B">B</span>
+      <span id="I">I</span>
+      <span id="T">T</span>
     </div>
 </body>
 </html>

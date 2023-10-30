@@ -92,3 +92,22 @@ a:active {
   font-weight: bold;
   font-size: 20px;
 }
+#eProfile {
+  display: none;
+}
+.cancel {
+  border-radius: 5px;
+  padding: 7px;
+  font-size: 17px;
+  border: 1px solid #4c1c68;
+  background-color: #4c1c68;
+  color: white;
+}
+.edit {
+  border-radius: 5px;
+  padding: 7px;
+  font-size: 17px;
+  border: 1px solid #e57225;
+  background-color: #e57225;
+  color: white;
+}

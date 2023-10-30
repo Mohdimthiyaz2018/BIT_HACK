@@ -30,7 +30,7 @@
         <div class="box">
             <div class="title">TITLE</div>
             <div class="session">
-                <div class = "f20"><strong>PProblem Code:</strong> &nbsp&nbsp&nbsp 1 </div>
+                <div class = "f20"><strong>Problem Code:</strong> &nbsp&nbsp&nbsp 1 </div>
                 <div class = "f20"><strong>Mentor Name:</strong> &nbsp&nbsp&nbsp Shrithik</div>
                 <div class = "f20"><strong>Mentor E-Mail:</strong> &nbsp&nbsp&nbsp s@mail.com</div>
             </div>
@@ -43,11 +43,28 @@
                 <div>
                     <button class="back" onclick="history.back()">GO BACK</button>
                 </div>
-                <div>
-                    <button class="register">REGISTER</button>
+                <div id="fReg">
+                    <button class="register" onclick="register()">REGISTER</button>
                 </div>
+            </div>
+            <div class="rForm" id="rReg">
+              <form action="#">
+                <center>
+                  <span>Abstract drive link : </span>
+                  <input id="focus" type="text"/>
+                  <div class="note">**Note: Abstract must be uploaded in drive and link should be shared here with the permissions.</div>
+                  <button class="register" type="submit">REGISTER</button>
+                </center>
+              </form>
             </div>
         </div>
     </div>
   </body>
+  <script>
+    function register() {
+      document.getElementById("fReg").style.display = "none";
+      document.getElementById("rReg").style.display = "block";
+      document.getElementById("focus").focus();
+    }
+  </script>
 </html>
