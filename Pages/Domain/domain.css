@@ -4,7 +4,7 @@ body {
 }
 .header {
   margin: auto;
-  width: 97%;
+
   padding: 20px;
   box-shadow: 0px 5px 5px lightgray;
   position: sticky;
@@ -98,4 +98,55 @@ a:active {
   font-size: large;
   font-family: "Trebuchet MS", sans-serif;
   font-weight: bold;
+}
+.navMenu {
+  display: none;
+}
+@media only screen and (max-width: 600px) {
+  .Logo {
+    width: 280px;
+  }
+  .navBar {
+    display: none;
+  }
+  .navMenu {
+    display: block;
+  }
+  .navList {
+    box-shadow: 0px 5px 5px lightgray;
+    background-color: white;
+    display: none;
+    grid-template-columns: auto;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    width: 80%;
+    height: 100vh;
+  }
+  .card {
+    margin: 10px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    width: 350px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    align-items: center;
+    box-shadow: 2px 2px 3px lightgray;
+    color: #ff5841;
+  }
+  .card:hover {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    width: 350px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    align-items: center;
+    box-shadow: 2px 2px 3px lightgray;
+    color: black !important;
+  }
 }

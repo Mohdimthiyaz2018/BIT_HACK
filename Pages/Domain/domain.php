@@ -20,6 +20,29 @@
                 <a href="../Profile/profile.php" >PROFILE</a>
                 <a href="../Home/homeB.php" class="login">LOG OUT</a>
         </div>
+        <div class="navMenu">
+            <img src="../../Asserts/Images/menuIcon.png" alt="Menu" width="30px" onclick="dispMenu()">
+            <div class="navList" id="navList">
+                <div>
+                    <img src="../../Asserts/Images/closeIcon.png" alt="Close" width="30px" onclick="closeMenu()">
+                </div>
+                <div>
+                    <a href="../Home/homeA.php" class="active">HOME</a>
+                </div>
+                <div>
+                    <a href="#" >ABOUT</a>
+                </div>
+                <div>
+                    <a href="../Domain/domain.php" >PROBLEM-STATEMENTS</a>
+                </div>
+                <div>
+                    <a href="../Profile/profile.php" >PROFILE</a>
+                </div>
+                <div>
+                    <a href="../Home/homeB.php" class="login">LOG OUT</a>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- HEAD END -->
     <div class="body">
@@ -72,4 +95,12 @@
         </a>
       </div>
 </body>
+<script>
+    function dispMenu(){
+        document.getElementById("navList").style.display="grid";
+    }
+    function closeMenu(){
+        document.getElementById("navList").style.display="none";
+    }
+</script>
 </html>

@@ -14,16 +14,55 @@
             <img class="Logo" src="../../Asserts/Images/bitFullLogo.webp" alt="BIT Full Logo">
         </div>
         <div class="navBar">
-                <a href="../Home/homeA.php" class="active">HOME</a>
-                <a href="#" >ABOUT</a>
-                <a href="../Domain/domain.php" >PROBLEM-STATEMENTS</a>
-                <a href="../Profile/profile.php" >PROFILE</a>
-                <a href="../Home/homeB.php" class="login">LOG OUT</a>
+            <a href="../Home/homeA.php" class="active">HOME</a>
+            <a href="#" >ABOUT</a>
+            <a href="../Domain/domain.php" >PROBLEM-STATEMENTS</a>
+            <a href="../Profile/profile.php" >PROFILE</a>
+            <a href="../Home/homeB.php" class="login">LOG OUT</a>
+        </div>
+        <div class="navMenu">
+            <img src="../../Asserts/Images/menuIcon.png" alt="Menu" width="30px" onclick="dispMenu()">
+            <div class="navList" id="navList">
+                <div>
+                    <img src="../../Asserts/Images/closeIcon.png" alt="Close" width="30px" onclick="closeMenu()">
+                </div>
+                <div>
+                    <a href="../Home/homeA.php" class="active">HOME</a>
+                </div>
+                <div>
+                    <a href="#" >ABOUT</a>
+                </div>
+                <div>
+                    <a href="../Domain/domain.php" >PROBLEM-STATEMENTS</a>
+                </div>
+                <div>
+                    <a href="../Profile/profile.php" >PROFILE</a>
+                </div>
+                <div>
+                    <a href="../Home/homeB.php" class="login">LOG OUT</a>
+                </div>
+            </div>
         </div>
     </div>
     <!-- HEAD END -->
     <div class="body">
-        <div class="title">SKILLS BIT</div>
+      <span id="S">S</span>
+      <span id="K">K</span>
+      <span id="I">I</span>
+      <span id="L">L</span>
+      <span id="L">L</span>
+      &nbsp;&nbsp;
+      <span id="B">B</span>
+      <span id="I">I</span>
+      <span id="T">T</span>
     </div>
 </body>
+<script>
+    function dispMenu(){
+        document.getElementById("navList").style.display="grid";
+    }
+    function closeMenu(){
+        document.getElementById("navList").style.display="none";
+    }
+</script>
 </html>

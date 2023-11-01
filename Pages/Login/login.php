@@ -12,7 +12,7 @@
     <div class="container">
       <center>
         <img class="logo" src="../../Asserts/Images/bitFullLogo.webp" alt="BitLogo" />
-        <div class="title">Skills BIT Portal</div>
+        <div class="title">Skills BIT</div>
       </center>
       <a href="../Home/homeA.php">
           <div class="loginButt">

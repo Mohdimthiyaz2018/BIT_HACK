@@ -6,7 +6,7 @@ body {
 }
 .header {
   margin: auto;
-  width: 97%;
+
   padding: 20px;
   box-shadow: 0px 5px 5px lightgray;
   position: sticky;
@@ -52,17 +52,9 @@ a:active {
   background-color: white;
   color: #e57225;
 }
-/* HEAD END */
-.title {
-  color: #33347c;
-  display: flex;
-  align-items: center;
-  height: 80vh;
-  width: fit-content;
-  margin: auto;
-  font-family: sans-serif;
-  font-weight: bolder;
-  font-size: 55px;
+
+.navMenu {
+  display: none;
 }
 /* ANIMATION */
 .body {
@@ -83,7 +75,7 @@ div > span {
 }
 #I {
   opacity: 1;
-  color: yellow;
+  color: rgb(225, 191, 0);
   animation: flickerI 2s linear reverse infinite;
 }
 #I::after {
@@ -136,5 +128,30 @@ div > span {
   }
   100% {
     opacity: 1;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .Logo {
+    width: 280px;
+  }
+  .navBar {
+    display: none;
+  }
+  .navMenu {
+    display: block;
+  }
+  .navList {
+    box-shadow: 0px 5px 5px lightgray;
+    background-color: white;
+    display: none;
+    grid-template-columns: auto;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    width: 80%;
+    height: 100vh;
   }
 }

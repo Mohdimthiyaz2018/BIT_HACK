@@ -5,7 +5,7 @@ body {
 }
 .header {
   margin: auto;
-  width: 97%;
+
   padding: 20px;
   box-shadow: 0px 5px 5px lightgray;
   position: sticky;
@@ -64,10 +64,6 @@ a:active {
   font-weight: bolder;
   font-size: 55px;
 }
-.grid-container {
-  display: grid;
-  align-items: center;
-}
 .grid-item-head {
   color: white;
   font-weight: bold;
@@ -75,10 +71,13 @@ a:active {
 .grid-container-body {
   display: grid;
   grid-template-columns: 33% 33% 33%;
+  row-gap: 15px;
   align-items: center;
   text-align: center;
 }
 .tabel {
+  display: grid;
+  align-items: center;
   width: 80%;
   margin: 55px auto 10px auto;
   border-radius: 8px;
@@ -101,7 +100,8 @@ a:active {
 }
 .topic {
   font-weight: bold;
-  overflow-x: inherit;
+  text-wrap: wrap;
+  overflow-wrap: break-word;
 }
 .description {
   text-align: left;
@@ -118,4 +118,38 @@ a:active {
   border-radius: 5px;
   padding: 6px;
   border: none;
+}
+.navMenu {
+  display: none;
+}
+@media only screen and (max-width: 600px) {
+  .Logo {
+    width: 280px;
+  }
+  .navBar {
+    display: none;
+  }
+  .navMenu {
+    display: block;
+  }
+  .navList {
+    box-shadow: 0px 5px 5px lightgray;
+    background-color: white;
+    display: none;
+    grid-template-columns: auto;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    width: 80%;
+    height: 100vh;
+  }
+  .tabel {
+    width: 90%;
+    margin: 55px auto 10px auto;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
 }
