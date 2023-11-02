@@ -18,11 +18,11 @@
         />
       </div>
       <div class="navBar">
-        <a href="../Home/homeA.php">HOME</a>
+        <a href="../Home/home.php">HOME</a>
         <a href="#">ABOUT</a>
         <a href="../Domain/domain.php">PROBLEM-STATEMENTS</a>
         <a href="../Profile/profile.php" class="active">PROFILE</a>
-        <a href="../Home/homeB.php" class="login">LOG OUT</a>
+        <a href="../../logout.php" class="login">LOG OUT</a>
       </div>
       <div class="navMenu">
             <img src="../../Asserts/Images/menuIcon.png" alt="Menu" width="30px" onclick="dispMenu()">
@@ -31,7 +31,7 @@
                     <img src="../../Asserts/Images/closeIcon.png" alt="Close" width="30px" onclick="closeMenu()">
                 </div>
                 <div>
-                    <a href="../Home/homeA.php" class="active">HOME</a>
+                    <a href="../Home/home.php" >HOME</a>
                 </div>
                 <div>
                     <a href="#" >ABOUT</a>
@@ -40,10 +40,10 @@
                     <a href="../Domain/domain.php" >PROBLEM-STATEMENTS</a>
                 </div>
                 <div>
-                    <a href="../Profile/profile.php" >PROFILE</a>
+                    <a href="../Profile/profile.php" class="active">PROFILE</a>
                 </div>
                 <div>
-                    <a href="../Home/homeB.php" class="login">LOG OUT</a>
+                    <a href="../../logout.php" class="login">LOG OUT</a>
                 </div>
             </div>
         </div>
