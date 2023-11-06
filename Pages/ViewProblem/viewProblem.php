@@ -1,3 +1,24 @@
+<?php
+require '../../config.php';
+
+if(!isset($_SESSION['login_id'])){
+    header('Location: ../Login/login.php');
+    exit;
+}
+
+$id = $_SESSION['login_id'];
+
+$get_user = mysqli_query($db_connection, "SELECT * FROM `users` WHERE `google_id`='$id'");
+
+if(mysqli_num_rows($get_user) > 0){
+    $user = mysqli_fetch_assoc($get_user);
+}
+else{
+    header('Location: ../../logout.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -34,7 +55,7 @@
                     <a href="../Home/home.php" >HOME</a>
                 </div>
                 <div>
-                    <a href="#" >ABOUT</a>
+                    <a href="#about" >ABOUT</a>
                 </div>
                 <div>
                     <a href="../Domain/domain.php" >PROBLEM-STATEMENTS</a>
@@ -46,6 +67,14 @@
                     <a href="../../logout.php" class="login">LOG OUT</a>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="proBar" id="proBar">
+        <div>
+            <img src="<?php echo $user['profile_image']; ?>" alt="<?php echo $user['name']; ?>" class="proPic">
+        </div>
+        <div class="name">
+            <?php echo $user['name']; ?>
         </div>
     </div>
     <!-- HEAD END -->
@@ -74,9 +103,11 @@
               <form action="#">
                 <center>
                   <span>Abstract drive link : </span>
-                  <input id="focus" type="text"/>
+                  <form action="#" id="register">
+                    <input id="focus" type="text" required/>
+                  </form>
                   <div class="note">**Note: Abstract must be uploaded in drive and link should be shared here with the permissions.</div>
-                  <button class="register" type="submit">REGISTER</button>
+                  <button class="register" form="register" type="submit">REGISTER</button>
                 </center>
               </form>
             </div>
@@ -91,9 +122,11 @@
     }
     function dispMenu(){
         document.getElementById("navList").style.display="grid";
+        document.getElementById("proBar").style.display="none";
     }
     function closeMenu(){
         document.getElementById("navList").style.display="none";
+        document.getElementById("proBar").style.display="flex";
     }
   </script>
 </html>

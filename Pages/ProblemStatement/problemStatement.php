@@ -1,3 +1,24 @@
+<?php
+require '../../config.php';
+
+if(!isset($_SESSION['login_id'])){
+    header('Location: ../Login/login.php');
+    exit;
+}
+
+$id = $_SESSION['login_id'];
+
+$get_user = mysqli_query($db_connection, "SELECT * FROM `users` WHERE `google_id`='$id'");
+
+if(mysqli_num_rows($get_user) > 0){
+    $user = mysqli_fetch_assoc($get_user);
+}
+else{
+    header('Location: ../../logout.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -34,10 +55,10 @@
                   <a href="../Home/home.php">HOME</a>
               </div>
               <div>
-                  <a href="#" >ABOUT</a>
+                  <a href="#about" >ABOUT</a>
               </div>
               <div>
-                  <a href="../Domain/domain.php" class="active">PROBLEM-STATEMENTS</a>
+                  <a href="../Domain/domain.php">PROBLEM-STATEMENTS</a>
               </div>
               <div>
                   <a href="../Profile/profile.php" >PROFILE</a>
@@ -47,6 +68,14 @@
               </div>
           </div>
       </div>
+    </div>
+    <div class="proBar" id="proBar">
+        <div>
+            <img src="<?php echo $user['profile_image']; ?>" alt="<?php echo $user['name']; ?>" class="proPic">
+        </div>
+        <div class="name">
+            <?php echo $user['name']; ?>
+        </div>
     </div>
     <!-- HEAD END -->
     <div class="body">
@@ -85,9 +114,11 @@
   <script>
     function dispMenu(){
         document.getElementById("navList").style.display="grid";
+        document.getElementById("proBar").style.display="none";
     }
     function closeMenu(){
         document.getElementById("navList").style.display="none";
+        document.getElementById("proBar").style.display="flex";
     }
 </script>
 </html>

@@ -92,8 +92,8 @@ else:
             <img class="Logo" src="../../Asserts/Images/bitFullLogo.webp" alt="BIT Full Logo">
         </div>
         <div class="navBar">
-                <a href="#" class="active">HOME</a>
-                <a href="#" >ABOUT</a>
+                <a href="#home" class="active">HOME</a>
+                <a href="#about" >ABOUT</a>
                 <a href="<?php echo $client->createAuthUrl(); ?>" class="login">LOGIN / REGISTER</a>
         </div>
         <div class="navMenu">
@@ -103,10 +103,10 @@ else:
                     <img src="../../Asserts/Images/closeIcon.png" alt="Close" width="30px" onclick="closeMenu()">
                 </div>
                 <div>
-                    <a href="#" class="active">HOME</a>
+                    <a href="#home" class="active">HOME</a>
                 </div>
                 <div>
-                    <a href="#" >ABOUT</a>
+                    <a href="#about" >ABOUT</a>
                 </div>
                 <div>
                 <a href="<?php echo $client->createAuthUrl(); ?>" class="login">LOGIN / REGISTER</a>
@@ -126,13 +126,18 @@ else:
       <span id="I">I</span>
       <span id="T">T</span>
     </div>
+    <div class="mbody">
+        <div class="title">SKILLS BIT</div>
+    </div>
 </body>
 <script>
     function dispMenu(){
         document.getElementById("navList").style.display="grid";
+        document.getElementById("proBar").style.display="none";
     }
     function closeMenu(){
         document.getElementById("navList").style.display="none";
+        document.getElementById("proBar").style.display="flex";
     }
 </script>
 </html>

@@ -1,7 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: Lato;
 }
 .header {
   margin: auto;
@@ -26,7 +28,7 @@ body {
 }
 a:link {
   color: #4c1c68;
-  font-family: sans-serif;
+  font-family: Lato;
   text-decoration: none;
   font-size: 22px;
 }
@@ -62,7 +64,7 @@ a:active {
   margin-top: 60px;
 }
 .box {
-  font-family: sans-serif;
+  font-family: Lato;
   margin: 0px auto 30px auto;
   width: 80%;
   border-radius: 7px;
@@ -75,7 +77,7 @@ a:active {
   margin: auto;
   padding: 30px;
   text-align: center;
-  font-family: sans-serif;
+  font-family: Lato;
   font-weight: bolder;
   font-size: 55px;
 }
@@ -129,6 +131,26 @@ a:active {
 .navMenu {
   display: none;
 }
+.proBar {
+  position: absolute;
+  right: 3px;
+  background-color: #e57225;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Lato;
+  border-radius: 0px 0px 10px 10px;
+  padding: 5px 20px;
+  width: fit-content;
+}
+.proPic {
+  border-radius: 50px;
+  width: 40px;
+}
+.name {
+  margin-left: 10px;
+}
 @media only screen and (max-width: 600px) {
   .Logo {
     width: 280px;
@@ -154,11 +176,14 @@ a:active {
     height: 100vh;
   }
   .box {
-    font-family: sans-serif;
+    font-family: Lato;
     margin: 0px auto 30px auto;
     width: 90%;
     border-radius: 7px;
     box-shadow: 0 4px 15px -2px rgba(31, 38, 135, 0.37);
     background-color: #c4b0ff1a;
+  }
+  #fReg {
+    margin-top: 20px;
   }
 }

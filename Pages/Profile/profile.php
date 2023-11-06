@@ -1,3 +1,24 @@
+<?php
+require '../../config.php';
+
+if(!isset($_SESSION['login_id'])){
+    header('Location: ../Login/login.php');
+    exit;
+}
+
+$id = $_SESSION['login_id'];
+
+$get_user = mysqli_query($db_connection, "SELECT * FROM `users` WHERE `google_id`='$id'");
+
+if(mysqli_num_rows($get_user) > 0){
+    $user = mysqli_fetch_assoc($get_user);
+}
+else{
+    header('Location: ../../logout.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -34,7 +55,7 @@
                     <a href="../Home/home.php" >HOME</a>
                 </div>
                 <div>
-                    <a href="#" >ABOUT</a>
+                    <a href="#about" >ABOUT</a>
                 </div>
                 <div>
                     <a href="../Domain/domain.php" >PROBLEM-STATEMENTS</a>
@@ -48,23 +69,31 @@
             </div>
         </div>
     </div>
+    <!-- <div class="proBar" id="proBar">
+        <div>
+            <img src="<?php echo $user['profile_image']; ?>" alt="<?php echo $user['name']; ?>" class="proPic">
+        </div>
+        <div class="name">
+            <?php echo $user['name']; ?>
+        </div>
+    </div> -->
     <div class="body">
     <div class="title">PROFILE</div>
         <div class="box">
             <div class="profile">
                 <div>
-                    <img src="../../Asserts/Images/proPicPlaceHolder.jpg" alt="Profile Picture" width="300px" height="300px">
+                    <img src="<?php echo $user['profile_image']; ?>" alt="<?php echo $user['name']; ?>" alt="Profile Picture" class="proPicM" width="300px" height="300px">
                 </div>
                 <div class="proDitl" id="vProfile">
                     <div class="subHead">Name</div>
                     <div class="subHead">:</div>
-                    <div class="subBody">ShrithiK</div>
+                    <div class="subBody"><?php echo $user['name']; ?></div>
                     <div class="subHead">RollNumber</div>
                     <div class="subHead">:</div>
                     <div class="subBody">191IG133</div>
                     <div class="subHead">Email</div>
                     <div class="subHead">:</div>
-                    <div class="subBody">shrithik.ig19@bitsathy.ac.in</div>
+                    <div class="subBody"><?php echo $user['email']; ?></div>
                     <div class="subHead">PhoneNO</div>
                     <div class="subHead">:</div>
                     <div class="subBody">8610646600</div>
@@ -72,13 +101,13 @@
                     <div class="subHead">:</div>
                     <div class="subBody">Not Selected Yet!</div>
                     <div></div>
-                    <div>
+                    <!-- <div>
                       <center>
                         <button class="edit" onclick="edit()">EDIT</button>
                       </center>
-                    </div>
+                    </div> -->
                       
-                </div>
+                <!-- </div>
                   <div class="proDitl" id="eProfile">
                       <div class="subHead">Name</div>
                       <div class="subHead">:</div>
@@ -112,7 +141,7 @@
                         </center>
                       </div>
                   </div>
-            </div>
+            </div> -->
         </div>
     </div>
   </body>
@@ -136,9 +165,11 @@
     }
     function dispMenu(){
         document.getElementById("navList").style.display="grid";
+        document.getElementById("proBar").style.display="none";
     }
     function closeMenu(){
         document.getElementById("navList").style.display="none";
+        document.getElementById("proBar").style.display="flex";
     }
   </script>
 </html>
