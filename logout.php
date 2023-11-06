@@ -18,6 +18,6 @@ if (ini_get("session.use_cookies")) {
 
 // Finally, destroy the session.
 session_destroy();
-header("Location: ./Pages/Login/login.php");
+header("Location: ./index.php");
 exit;
 ?>

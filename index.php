@@ -1,24 +1,19 @@
 <?php
-require '../../config.php';
+require './config.php';
 
 if(isset($_SESSION['login_id'])){
-    header('Location: ../Home/home.php');
+    header('Location: ./Pages/Home/home.php');
     exit;
 }
 
-require '../../google-api/vendor/autoload.php';
+require './google-api/vendor/autoload.php';
 
-// Creating new google client instance
 $client = new Google_Client();
 
-// Enter your Client ID
 $client->setClientId('1032584927843-m3bomc5t1lrarfccs1efu323jpg7jvhs.apps.googleusercontent.com');
-// Enter your Client Secrect
 $client->setClientSecret('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');
-// Enter the Redirect URL
-$client->setRedirectUri('http://localhost/SkillsBIT/Pages/Login/login.php');
+$client->setRedirectUri('http://localhost/SkillsBIT/index.php');
 
-// Adding those scopes which we want to get (email & profile Information)
 $client->addScope("email");
 $client->addScope("profile");
 
@@ -46,7 +41,7 @@ if(isset($_GET['code'])):
         if(mysqli_num_rows($get_user) > 0){
 
             $_SESSION['login_id'] = $id; 
-            header('Location: ../Home/home.php');
+            header('Location: ./Pages/Home/home.php');
             exit;
 
         }
@@ -57,7 +52,7 @@ if(isset($_GET['code'])):
 
             if($insert){
                 $_SESSION['login_id'] = $id; 
-                header('Location: ../Home/home.php');
+                header('Location: ./Pages/Home/home.php');
                 exit;
             }
             else{
@@ -68,7 +63,7 @@ if(isset($_GET['code'])):
 
     }
     else{
-        header('Location: ./login.php');
+        header('Location: ./index.php');
         exit;
     }
     
@@ -83,13 +78,13 @@ else:
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="HTML, CSS, JavaScript">
     <meta name="author" content="Shrithik">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="index.css">
     <title>SkillsBIT</title>
 </head>
 <body>
     <div class="header">
         <div>
-            <img class="Logo" src="../../Asserts/Images/bitFullLogo.webp" alt="BIT Full Logo">
+            <img class="Logo" src="./Asserts/Images/bitFullLogo.webp" alt="BIT Full Logo">
         </div>
         <div class="navBar">
                 <a href="#home" class="active">HOME</a>
@@ -97,10 +92,10 @@ else:
                 <a href="<?php echo $client->createAuthUrl(); ?>" class="login">LOGIN / REGISTER</a>
         </div>
         <div class="navMenu">
-            <img src="../../Asserts/Images/menuIcon.png" alt="Menu" width="30px" onclick="dispMenu()">
+            <img src="./Asserts/Images/menuIcon.png" alt="Menu" width="30px" onclick="dispMenu()">
             <div class="navList" id="navList">
                 <div>
-                    <img src="../../Asserts/Images/closeIcon.png" alt="Close" width="30px" onclick="closeMenu()">
+                    <img src="./Asserts/Images/closeIcon.png" alt="Close" width="30px" onclick="closeMenu()">
                 </div>
                 <div>
                     <a href="#home" class="active">HOME</a>
