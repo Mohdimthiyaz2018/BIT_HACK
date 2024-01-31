@@ -59,13 +59,13 @@ a:active {
 .proBar {
   position: absolute;
   right: 3px;
-  background-color: #e57225;
+  background-color: #ff5841;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: Lato;
-  border-radius: 0px 0px 10px 10px;
+  border-radius: 0px 0px 15px 20px;
   padding: 5px 20px;
   width: fit-content;
 }
@@ -91,7 +91,8 @@ a:active {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 75vh;
+   height: 35vh;
+  padding-top: 150px;
 }
 div > span {
   opacity: 0.75;
@@ -108,6 +109,23 @@ div > span {
   -moz-box-shadow: -55px 0px 60px 8px white;
   box-shadow: -55px 0px 60px 8px white;
 }
+
+.about1 {
+  display: flex !important;
+}
+
+.about1 .sabout1 {
+  width: 30%;
+}
+
+.about1 .sabout2 {
+  width: 48%;
+}
+
+.about1 .sabout3 {
+  width: 15%;
+}
+
 
 @keyframes flickerI {
   0% {
@@ -153,7 +171,7 @@ div > span {
     opacity: 1;
   }
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 900px) {
   .body {
     display: none;
   }
@@ -193,5 +211,8 @@ div > span {
     z-index: 1;
     width: 80%;
     height: 100vh;
+  }
+  .about1 {
+    display: none !important;
   }
 }

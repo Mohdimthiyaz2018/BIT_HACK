@@ -1,22 +1,36 @@
 <?php
-require '../../config.php';
+session_start();
 
 if(!isset($_SESSION['login_id'])){
     header('Location: ../../index.php');
     exit;
 }
 
-$id = $_SESSION['login_id'];
 
-$get_user = mysqli_query($db_connection, "SELECT * FROM `users` WHERE `google_id`='$id'");
 
-if(mysqli_num_rows($get_user) > 0){
-    $user = mysqli_fetch_assoc($get_user);
+require '../../config.php';
+$str = null;
+
+if(isset($_POST['domain']))
+{
+  $str = $_POST['domain'];
+  $_SESSION['domain'] = $str;
 }
-else{
-    header('Location: ../../logout.php');
-    exit;
+else {
+  $str = $_SESSION['domain'];
 }
+
+
+$domain =  str_replace(" ","_",$str);
+$domain =  str_replace("/","_",$domain);
+$domain = strtolower($domain);
+
+$sql = " SELECT * FROM $domain ";
+$sqll = mysqli_query($link,$sql);
+$count = 0;
+if($sqll->num_rows > 0)
+{
+
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +41,16 @@ else{
     <meta name="keywords" content="HTML, CSS, JavaScript" />
     <meta name="author" content="Shrithik" />
     <link rel="stylesheet" href="problemStatements.css" />
-    <title>SkillsBIT</title>
+    <link rel="icon" type="image/x-icon" href="../.././Asserts/Images/logo.png" >
+    <link rel="stylesheet" href="../../footer.css">
+    <title>BIT HACK</title>
+    <style>
+      
+      .nony {
+        display: none !important
+      }
+
+    </style>
   </head>
   <body>
     <div class="header">
@@ -41,7 +64,7 @@ else{
       <div class="navBar">
         <a href="../Home/home.php">HOME</a>
         <a href="#">ABOUT</a>
-        <a href="../Domain/domain.php">PROBLEM-STATEMENTS</a>
+        <a href="../Category/category.php">PROBLEM-STATEMENTS</a>
         <a href="../Profile/profile.php">PROFILE</a>
         <a href="../../logout.php" class="login">LOG OUT</a>
       </div>
@@ -58,7 +81,7 @@ else{
                   <a href="#about" >ABOUT</a>
               </div>
               <div>
-                  <a href="../Domain/domain.php">PROBLEM-STATEMENTS</a>
+                  <a href="../Category/category.php">PROBLEM-STATEMENTS</a>
               </div>
               <div>
                   <a href="../Profile/profile.php" >PROFILE</a>
@@ -69,14 +92,7 @@ else{
           </div>
       </div>
     </div>
-    <div class="proBar" id="proBar">
-        <div>
-            <img src="<?php echo $user['profile_image']; ?>" alt="<?php echo $user['name']; ?>" class="proPic">
-        </div>
-        <div class="name">
-            <?php echo $user['name']; ?>
-        </div>
-    </div>
+    
     <!-- HEAD END -->
     <div class="body">
       <div class="title">PROBLEM STATEMENTS</div>
@@ -88,37 +104,76 @@ else{
               <div class="grid-item-head"></div>
             </div>
           <div >
-            <form class="grid-container-body tabelBody" method="POST" action="../ViewProblem/viewProblem.php">
-              <div class="grid-item sNo">1001</div>
-              <div class="grid-item topic" >topic1 topic1 topic1 topic1 topic1</div>
+          <?php while($row = $sqll->fetch_assoc()) { 
+            $count = $count + 1; ?>
+            <form <?php if($count % 2 == 0) { ?> style="background-color: #F0F0F0" <?php } ?> class="grid-container-body tabelBody" method="GET" action="../ViewProblem/viewProblem.php">
+              <?php
+                $code = $row['PROBLEM_CODE'];
+                $title = $row['TITLE'];
+                $desc = $row['DESCRIPTION'];
+                $desc =  str_replace(" ","_",$desc);
+                $intern = $row['INTERN'];
+                $intern_id = $row['INTERN_MAIL_ID'];
+                $intern =  str_replace(" ","_",$intern);
+                ?>
+              <div class="grid-item sNo"><?php echo $code ?></div>
+              <div class="grid-item topic" > <?php echo $title; $title =  str_replace(" ","_",$title); ?> </div>
               <!-- <div class="grid-item description" >description description description description description description description description description description </div> -->
               <div class="grid-item">
                 <center>
+                <input type="hidden" name="domain" value = <?php echo $domain ?> >
+                  <input type="hidden" name="code" value = <?php echo $code ?> >
+                  <input type="hidden" name="title" value = <?php echo $title ?> >
+                  <input type="hidden" name="desc" value = <?php echo $desc ?> >
+                  <input type="hidden" name="intern" value = <?php echo $intern;  ?> >
+                  <input type="hidden" name="intern_id" value = <?php echo $intern_id ?> >
                   <input  class="button" type="submit" value="VIEW"></input>
                 </center>
               </div>
-              <div class="grid-item sNo">1001</div>
-              <div class="grid-item topic" >topic1topic1topic1topic1topic1</div>
-              <!-- <div class="grid-item description" >description description description description description description description description description description </div> -->
-              <div class="grid-item">
-                <center>
-                  <input  class="button" type="submit" value="VIEW"></input>
-                </center>
-              </div>
+              
             </form>
+            <?php } ?>
           </div>
       </div>
     </div>
   </div>
+
+  <footer  >
+       <div class="footerContainer">
+            <div class="footerTitle">
+                <h1>BIT HACK</h1>
+            </div>
+            <div id="footerNav" class="footerNav">
+                <ul>
+                    <li><a href=".././Home/home.php">HOME</a></li>
+                    <li><a href="../Category/category.php">PROBLEM STATEMENT</a></li>
+                    <li><a href=".././Home/home.php#about">ABOUT</a></li>
+                    <li><a href=".././Profile/profile.php">PROFILE</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footerBottom">
+            <span class="copyRight">Copyright © 2023   &nbsp&nbsp&nbsp -  &nbsp&nbsp&nbsp </span><a class="copyRight" target="_blank" href="https://www.linkedin.com/in/mohamed-imthiyaz-1600qaqw?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">MOHAMED IMTHIYAZ A</a><span class="copyRight"> &nbsp & &nbsp </span><a class="copyRight" href="">SHRITHIK A</a>
+        </div>
+    </footer>
+
   </body>
   <script>
-    function dispMenu(){
+     function dispMenu(){
         document.getElementById("navList").style.display="grid";
-        document.getElementById("proBar").style.display="none";
+        document.getElementById("footerNav").style.display="none";
+        
     }
     function closeMenu(){
         document.getElementById("navList").style.display="none";
-        document.getElementById("proBar").style.display="flex";
+        document.getElementById("footerNav").style.display="initial";
     }
+
+    if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+
 </script>
 </html>
+
+<?php } ?>

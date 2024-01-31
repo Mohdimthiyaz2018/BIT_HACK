@@ -1,0 +1,81 @@
+.wrapper {
+    display: flex;
+    height: 80px;
+    margin-top: 140px;
+  
+  }
+  
+  .main {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  .side-panel-toggle {
+    width: 80px;
+    height: 40px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    color: white;
+    font-family: lato;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    background: orange;
+    border: none;
+    border-radius: 0px 5px 5px 0px;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .hr:hover {
+    color:black !important;
+  }
+  
+  .sp-icon-close {
+    display: none !important;
+  }
+  
+  .side-panel {
+    display: none;
+    width: 120px;
+    flex-shrink: 0;
+    padding-top:15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color:skyblue;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+    height:150px;
+  }
+  
+  .side-panel a{
+  color:purple;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: lato;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  }
+
+  .side-panel p {
+    font-size: 15px;
+  }
+  
+  .side-panel p:hover {
+      color:white !important; 
+      cursor: pointer;
+  }
+  
+  .side-panel-open .side-panel {
+    display: initial;
+  }
+  
+  .side-panel-open .sp-icon-open {
+    display: none !important;
+  }
+  
+  .side-panel-open .sp-icon-close {
+    display: initial !important;
+  }
+  

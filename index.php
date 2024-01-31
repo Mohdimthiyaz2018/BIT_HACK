@@ -1,4 +1,5 @@
 <?php
+session_start();
 require './config.php';
 
 if(isset($_SESSION['login_id'])){
@@ -10,15 +11,15 @@ require './google-api/vendor/autoload.php';
 
 $client = new Google_Client();
 
-$client->setClientId('1032584927843-m3bomc5t1lrarfccs1efu323jpg7jvhs.apps.googleusercontent.com');
-$client->setClientSecret('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');
+$client->setClientId('655964990720-7tq5o7rv4aodqks8ki49u2vbmjn17mdm.apps.googleusercontent.com');
+$client->setClientSecret('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');
 $client->setRedirectUri('http://localhost/SkillsBIT/index.php');
 
 $client->addScope("email");
 $client->addScope("profile");
 
 
-if(isset($_GET['code'])):
+if(isset($_GET['code'])) {
 
     $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
 
@@ -26,39 +27,20 @@ if(isset($_GET['code'])):
 
         $client->setAccessToken($token['access_token']);
 
-        // getting profile information
-        $google_oauth = new Google_Service_Oauth2($client);
-        $google_account_info = $google_oauth->userinfo->get();
-    
-        // Storing data into database
-        $id = mysqli_real_escape_string($db_connection, $google_account_info->id);
-        $full_name = mysqli_real_escape_string($db_connection, trim($google_account_info->name));
-        $email = mysqli_real_escape_string($db_connection, $google_account_info->email);
-        $profile_pic = mysqli_real_escape_string($db_connection, $google_account_info->picture);
-
-        // checking user already exists or not
-        $get_user = mysqli_query($db_connection, "SELECT `google_id` FROM `users` WHERE `google_id`='$id'");
-        if(mysqli_num_rows($get_user) > 0){
-
-            $_SESSION['login_id'] = $id; 
-            header('Location: ./Pages/Home/home.php');
-            exit;
-
-        }
-        else{
-
-            // if user not exists we will insert the user
-            $insert = mysqli_query($db_connection, "INSERT INTO `users`(`google_id`,`name`,`email`,`profile_image`) VALUES('$id','$full_name','$email','$profile_pic')");
-
-            if($insert){
-                $_SESSION['login_id'] = $id; 
-                header('Location: ./Pages/Home/home.php');
-                exit;
-            }
-            else{
-                echo "Sign up failed!(Something went wrong).";
-            }
-
+        $obj=new Google_Service_Oauth2($client);
+        $data=$obj->userinfo->get();
+        
+        if(!empty($data->email)&&!empty($data->name)){
+        
+        //if you want to register user details, place mysql insert query here
+        $_SESSION["email"]=$data->email;
+        $_SESSION['user_image'] = $data->picture;
+        $_SESSION["name"]=$data->name;
+        $_SESSION["login_id"] = null;
+        if($_SESSION['email'] == 'mohamedimthiyaz.it19@bitsathy.ac.in' || $_SESSION['email'] == 'mohdimthiyaz2018@gmail.com') {
+            $_SESSION["login_id"] = true;
+        } 
+        header("location:./Pages/Home/home.php");
         }
 
     }
@@ -67,8 +49,7 @@ if(isset($_GET['code'])):
         exit;
     }
     
-else: 
-    // Google Login Url = $client->createAuthUrl(); 
+}
 ?>
 
 <!DOCTYPE html>
@@ -79,7 +60,9 @@ else:
     <meta name="keywords" content="HTML, CSS, JavaScript">
     <meta name="author" content="Shrithik">
     <link rel="stylesheet" href="index.css">
-    <title>SkillsBIT</title>
+    <link rel="stylesheet" href="footer.css">
+    <link rel="icon" type="image/x-icon" href="./Asserts/Images/logo.png" >
+    <title>BIT HACK</title>
 </head>
 <body>
     <div class="header">
@@ -111,19 +94,36 @@ else:
     </div>
     <!-- HEAD END -->
     <div class="body">
-      <span id="S">S</span>
-      <span id="K">K</span>
-      <span id="I">I</span>
-      <span id="L">L</span>
-      <span id="L">L</span>
+      <span id="S">B</span>
+      <span id="K">I</span>
+      <span id="I">T</span>
       &nbsp;&nbsp;
-      <span id="B">B</span>
-      <span id="I">I</span>
-      <span id="T">T</span>
+      <span id="L">H</span>
+      <span id="L">A</span>
+      <span id="B">C</span>
+      <span id="I">K</span>
+      
     </div>
     <div class="mbody">
-        <div class="title">SKILLS BIT</div>
+        <div class="title">BIT HACK</div>
     </div>
+
+    <footer>
+       <div class="footerContainer">
+            <div class="footerTitle">
+                <h1>BIT HACK</h1>
+            </div>
+            <div class="footerNav">
+                <ul>
+                   
+                </ul>
+            </div>
+        </div>
+        <div class="footerBottom">
+            <span class="copyRight">Copyright  © 2023   &nbsp&nbsp&nbsp -  &nbsp&nbsp&nbsp </span><a class="copyRight" target="_blank" href="https://www.instagram.com/mohamedimthiyaz_/">MOHAMED IMTHIYAZ A</a><span class="copyRight"> &nbsp & &nbsp </span><a class="copyRight" href="">SHRITHIK A</a>
+        </div>
+    </footer>
+
 </body>
 <script>
     function dispMenu(){
@@ -137,4 +137,3 @@ else:
 </script>
 </html>
 
-<?php endif; ?>

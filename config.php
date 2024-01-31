@@ -1,11 +1,10 @@
 <?php
-session_start();
-session_regenerate_id(true);
-// change the information according to your database
-$db_connection = mysqli_connect("localhost","root","","skill_bit");
-// CHECK DATABASE CONNECTION
-if(mysqli_connect_errno()){
-    echo "Connection Failed".mysqli_connect_error();
-    exit;
+$host = 'localhost';
+$user = 'root';
+$pass = '';
+$dbname = 'skills_bit';
+
+$link = mysqli_connect($host, $user, $pass,$dbname);
+if(!$link){
+  die('Could not connect: '.mysqli_connect_error());
 }
-?>

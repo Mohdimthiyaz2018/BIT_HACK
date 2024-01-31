@@ -1,4 +1,5 @@
 <?php
+session_start();
 require '../../config.php';
 
 if(!isset($_SESSION['login_id'])){
@@ -6,17 +7,6 @@ if(!isset($_SESSION['login_id'])){
     exit;
 }
 
-$id = $_SESSION['login_id'];
-
-$get_user = mysqli_query($db_connection, "SELECT * FROM `users` WHERE `google_id`='$id'");
-
-if(mysqli_num_rows($get_user) > 0){
-    $user = mysqli_fetch_assoc($get_user);
-}
-else{
-    header('Location: ../../logout.php');
-    exit;
-}
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +17,9 @@ else{
     <meta name="keywords" content="HTML, CSS, JavaScript">
     <meta name="author" content="Shrithik">
     <link rel="stylesheet" href="home.css">
-    <title>SkillsBIT</title>
+    <link rel="stylesheet" href="../../footer.css">
+    <link rel="icon" type="image/x-icon" href="../.././Asserts/Images/logo.png" >
+    <title>BIT HACK</title>
 </head>
 <body>
     <div class="header">
@@ -35,9 +27,9 @@ else{
             <img class="Logo" src="../../Asserts/Images/bitFullLogo.webp" alt="BIT Full Logo">
         </div>
         <div class="navBar">
-            <a href="#home" class="active">HOME</a>
+            <a href="" class="active">HOME</a>
             <a href="#about" >ABOUT</a>
-            <a href="../Domain/domain.php" >PROBLEM-STATEMENTS</a>
+            <a href="../Category/category.php" >PROBLEM-STATEMENTS</a>
             <a href="../Profile/profile.php" >PROFILE</a>
             <a href="../../logout.php" class="login">LOG OUT</a>
         </div>
@@ -54,7 +46,7 @@ else{
                     <a href="#about" >ABOUT</a>
                 </div>
                 <div>
-                    <a href="../Domain/domain.php" >PROBLEM-STATEMENTS</a>
+                    <a href="../Category/category.php" >PROBLEM-STATEMENTS</a>
                 </div>
                 <div>
                     <a href="../Profile/profile.php" >PROFILE</a>
@@ -65,41 +57,74 @@ else{
             </div>
         </div>
     </div>
-    <div class="proBar" id="proBar">
-        <div>
-            <img src="<?php echo $user['profile_image']; ?>" alt="<?php echo $user['name']; ?>" class="proPic">
+    
+       
+        <div class="proBar" id="proBar">
+            <div>
+                <img src="<?php echo $_SESSION['user_image']; ?>" class="proPic">
+            </div>
+            <div class="name">
+                <?php echo $_SESSION['name']; ?>
+            </div>
         </div>
-        <div class="name">
-            <?php echo $user['name']; ?>
-        </div>
-    </div>
+    
     <!-- HEAD END -->
     <div class="body">
-      <span id="S">S</span>
-      <span id="K">K</span>
-      <span id="I">I</span>
-      <span id="L">L</span>
-      <span id="L">L</span>
+    <span id="S">B</span>
+      <span id="K">I</span>
+      <span id="I">T</span>
       &nbsp;&nbsp;
-      <span id="B">B</span>
-      <span id="I">I</span>
-      <span id="T">T</span>
+      <span id="L">H</span>
+      <span id="L">A</span>
+      <span id="B">C</span>
+      <span id="I">K</span>
     </div>
     <div class="mbody">
-        <div class="title">SKILLS BIT</div>
+        <div class="title">BIT HACK</div>
     </div>
-    <div class="about" id="about">
+    
+    <div class="about1" id="about">
+        <div class="sabout1">
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script><lottie-player src="https://lottie.host/66839671-aed8-4dde-8c41-672f3bce64ee/nujus5L8rV.json" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay direction="1" mode="normal"></lottie-player>
+        </div>
+        <div class="sabout2">
+        </div>
+        <div class="sabout3">
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script><lottie-player src="https://lottie.host/c718eaee-740e-4ad0-be54-6e8cbd7e0bfe/Mt2S9vX90h.json" background="##FFFFFF" speed="1" style="width: 300px; height: 300px" loop autoplay direction="1" mode="normal"></lottie-player>        </div>
+    </div>
 
     </div>
+
+    <footer>
+       <div class="footerContainer">
+            <div class="footerTitle">
+                <h1>BIT HACK</h1>
+            </div>
+            <div class="footerNav" id="footerNav">
+                <ul>
+                    <li><a href="">HOME</a></li>
+                    <li><a href="../Category/category.php">PROBLEM STATEMENT</a></li>
+                    <li><a href="">ABOUT</a></li>
+                    <li><a href="../Profile/profile.php">PROFILE</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footerBottom">
+            <span class="copyRight">Copyright © 2023 &nbsp - &nbsp </span><a class="copyRight" target="_blank" href="https://www.linkedin.com/in/mohamed-imthiyaz-1600qaqw?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">MOHAMED IMTHIYAZ A</a><span class="copyRight"> &nbsp & &nbsp </span><a class="copyRight" href="">SHRITHIK A </a> 
+        </div>
+    </footer>
+    
 </body>
 <script>
     function dispMenu(){
         document.getElementById("navList").style.display="grid";
         document.getElementById("proBar").style.display="none";
+        document.getElementById("footerNav").style.display="none";
     }
     function closeMenu(){
         document.getElementById("navList").style.display="none";
         document.getElementById("proBar").style.display="flex";
+        document.getElementById("footerNav").style.display="initial";
     }
 </script>
 </html>

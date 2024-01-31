@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Lato;
+}
+.header {
+  margin: auto;
+
+  padding: 20px;
+  box-shadow: 0px 5px 5px lightgray;
+  position: sticky;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.Logo {
+  width: 400px;
+}
+.navBar {
+  width: 60%;
+  text-align: center;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: auto auto auto auto auto;
+}
+a:link {
+  color: #4c1c68;
+  font-family: Lato;
+  text-decoration: none;
+  font-size: 22px;
+}
+a:hover {
+  color: black;
+}
+a:active {
+  color: #e57225;
+}
+.active {
+  color: #e57225;
+}
+.login {
+  border-radius: 5px;
+  border: 1px solid #4c1c68;
+  background-color: #4c1c68;
+  color: white;
+}
+.login:hover {
+  border-radius: 5px;
+  border: 1px solid #4c1c68;
+  background-color: white;
+  color: #4c1c68;
+}
+/* HEAD END   */
+.body {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+.title {
+  color: #33347c;
+  width: fit-content;
+  margin: auto;
+  text-align: center;
+  font-family: Lato;
+  font-weight: bolder;
+  font-size: 55px;
+}
+.grid-item-head {
+  color: white;
+  font-weight: bold;
+}
+.grid-container-body {
+  display: grid;
+  grid-template-columns: 13% 22% 17% 20% 30%;
+  row-gap: 30px;
+  align-items: center;
+  text-align: center;
+}
+.tabel {
+  display: grid;
+  align-items: center;
+  width: 80%;
+  margin: 55px auto 10px auto;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.tabelHead {
+  border-radius: 5px 5px 0px 0px;
+  background-color: #e57225;
+  padding: 12px 15px;
+  font-family: Lato;
+}
+.tabelBody {
+  letter-spacing: 0.7px;
+  font-family: Lato;
+  padding: 12px 15px;
+}
+.sNo {
+  color: #e57225;
+  font-weight: bold;
+}
+.topic {
+  font-weight: bold;
+  text-wrap: wrap;
+  overflow-wrap: break-word;
+}
+.description {
+  text-align: left;
+  overflow-x: inherit;
+}
+
+.nony {
+  display: none !important
+}
+
+.button {
+  border-radius: 5px;
+  padding: 6px;
+  border: none;
+  color: white;
+  background-color: #FD3577;
+}
+.button:hover {
+  color: white;
+  background-color: blue;
+  border-radius: 5px;
+  padding: 6px;
+  border: none;
+  cursor: pointer;
+}
+.navMenu {
+  display: none;
+}
+.proBar {
+  position: absolute;
+  right: 3px;
+  background-color: #e57225;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Lato;
+  border-radius: 0px 0px 10px 10px;
+  padding: 5px 20px;
+  width: fit-content;
+}
+.proPic {
+  border-radius: 50px;
+  width: 40px;
+}
+.name {
+  margin-left: 10px;
+}
+@media only screen and (max-width: 600px) {
+  .Logo {
+    width: 280px;
+  }
+  .navBar {
+    display: none;
+  }
+  .navMenu {
+    display: block;
+  }
+  .navList {
+    box-shadow: 0px 5px 5px lightgray;
+    background-color: white;
+    display: none;
+    grid-template-columns: auto;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    width: 80%;
+    height: 100vh;
+  }
+  .tabel {
+    width: 90%;
+    margin: 55px auto 10px auto;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .grid-container-body {
+    display: grid;
+    grid-template-columns: 30% 14% 30% 29%;
+    row-gap: 30px;
+    align-items: center;
+    text-align: center;
+    width: 92%;
+  }
+  
+  .grid-item {
+    font-weight: 500;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 2px;
+    word-break: break-all;
+  }
+
+  .grid-item-head {
+    color: white;
+    font-weight: 250;
+    margin-left: -5px;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+  }
+
+  .tabel {
+    display: grid;
+    align-items: center;
+    width: 90%;
+    margin: 55px auto;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .button {
+    border-radius: 5px;
+    font-size: 12px;
+    padding: 5px;
+    border: none;
+    color: white;
+    background-color: #FD3577;
+    margin-left: 5px;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  .tabelHead {
+    border-radius: 5px 5px 0px 0px;
+    background-color: #e57225;
+    padding: 12px 15px;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+  }
+
+}
